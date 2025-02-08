@@ -23,9 +23,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cinema.Filmes.TMDBAdapter",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cinema.Filmes.Application", "src\services\Cinema.Filmes\Cinema.Filmes.Application\Cinema.Filmes.Application.csproj", "{93002C2F-1318-45B8-8036-FD21253F3AFA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cinema.Filmes.Application.Tests", "src\services\Cinema.Filmes\Cinema.Filmes.Application.Tests\Cinema.Filmes.Application.Tests.csproj", "{C16999D6-27C6-454E-A087-73ED55BFA6BF}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cinema.Filmes.Api", "src\services\Cinema.Filmes\Cinema.Filmes.Api\Cinema.Filmes.Api.csproj", "{7B6A22A7-8160-48F1-96FC-A5558E6B4EF0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cinema.Filmes.Application.Tests", "src\services\Cinema.Filmes\Cinema.Filmes.Application.Tests\Cinema.Filmes.Application.Tests.csproj", "{5B5D6E4B-E0FC-4CDC-9A06-CBB6B5ED012D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -61,14 +61,14 @@ Global
 		{93002C2F-1318-45B8-8036-FD21253F3AFA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{93002C2F-1318-45B8-8036-FD21253F3AFA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{93002C2F-1318-45B8-8036-FD21253F3AFA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C16999D6-27C6-454E-A087-73ED55BFA6BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C16999D6-27C6-454E-A087-73ED55BFA6BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C16999D6-27C6-454E-A087-73ED55BFA6BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C16999D6-27C6-454E-A087-73ED55BFA6BF}.Release|Any CPU.Build.0 = Release|Any CPU
 		{7B6A22A7-8160-48F1-96FC-A5558E6B4EF0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{7B6A22A7-8160-48F1-96FC-A5558E6B4EF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7B6A22A7-8160-48F1-96FC-A5558E6B4EF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7B6A22A7-8160-48F1-96FC-A5558E6B4EF0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5B5D6E4B-E0FC-4CDC-9A06-CBB6B5ED012D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B5D6E4B-E0FC-4CDC-9A06-CBB6B5ED012D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B5D6E4B-E0FC-4CDC-9A06-CBB6B5ED012D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B5D6E4B-E0FC-4CDC-9A06-CBB6B5ED012D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

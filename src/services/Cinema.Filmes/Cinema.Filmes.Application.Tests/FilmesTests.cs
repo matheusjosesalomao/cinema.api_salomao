@@ -1,9 +1,7 @@
-﻿using Cinema.Filmes.Domain.Adapters;
+using Cinema.Filmes.Domain.Adapters;
 using Cinema.Filmes.Domain.Models;
 using Cinema.Filmes.Domain.Services;
 using Moq;
-using Xunit;
-using Assert = Xunit.Assert;
 
 namespace Cinema.Filmes.Application.Tests
 {
