@@ -1,13 +1,10 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace Domain.Models
+﻿namespace Cinema.Filmes.Api.Dtos
 {
-    public class Pesquisa
+    public class FilmesGet
     {
         /// <summary>
         /// Termo a ser pesquisado.
         /// </summary>
-        [Required]
         public string TermoPesquisa { get; set; }
 
         /// <summary>

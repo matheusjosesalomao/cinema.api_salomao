@@ -1,7 +1,7 @@
-using Domain.Models;
+using Cinema.Filmes.Domain.Models;
 using Refit;
 
-namespace TmdbAdapter.Clients
+namespace Cinema.Filmes.TMDBAdapter.Clients
 {
     internal interface ITmdbApi
     {
@@ -9,7 +9,7 @@ namespace TmdbAdapter.Clients
         Task<TmdbSearchMoviesGetResult> SearchMovies([Query] TmdbSearchMoviesGet tmdbSearchMoviesGet);
 
         [Get("/movie/{movie_id}")]
-		Task<Movie> SearchMoviesById([Query] int movie_id);
-	}
+        Task<Movie> SearchMoviesById([Query] int movie_id);
+    }
 }
 

@@ -1,7 +1,8 @@
-using Api;
-using Application;
-using Domain.Services;
-using IMDbAdapter.Mongo;
+using Cinema.Filmes.Api;
+using Cinema.Filmes.Application;
+using Cinema.Filmes.Domain.Services;
+using Cinema.Filmes.TMDBAdapter;
+using Cinema.Filmes.TMDBAdapter.Microsoft.Extensions.DependencyInjection;
 
 var builder = WebApplication.CreateBuilder(args);
 ConfigurationManager configuration = builder.Configuration;
@@ -11,14 +12,13 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 //Service
-builder.Services.AddScoped<ICheckInService, CheckInService>();
+builder.Services.AddScoped<IFilmesService, FilmesService>();
 
 //Adapter
-//builder.Services.AddIMDbAdapter(configuration.
-//    SafeGet<TmdbAdapterConfiguration>());
+builder.Services.AddIMDbAdapter(configuration.
+    SafeGet<TmdbAdapterConfiguration>());
 
-builder.Services.AddMongo(configuration.
-    SafeGet<MongoDbAdpterConfiguration>());
+builder.Services.AddAutoMapperConfig();
 
 var app = builder.Build();
 

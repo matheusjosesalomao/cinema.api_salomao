@@ -1,6 +1,6 @@
 using Refit;
 
-namespace TmdbAdapter.Clients
+namespace Cinema.Filmes.TMDBAdapter.Clients
 {
     /// <summary>
     /// Modelo do entrada para a rota /search/movie do TMDb API
@@ -30,12 +30,12 @@ namespace TmdbAdapter.Clients
     }
 
 
-	internal class TmdbSearchMoviesGetById
-	{
-		[AliasAs("query")]
-		public string Query { get; set; }
-		[AliasAs("api_key")]
-		public string ApiKey { get; set; }
-	}
+    internal class TmdbSearchMoviesGetById
+    {
+        [AliasAs("query")]
+        public string Query { get; set; }
+        [AliasAs("api_key")]
+        public string ApiKey { get; set; }
+    }
 
 }

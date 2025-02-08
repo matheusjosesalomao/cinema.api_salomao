@@ -1,6 +1,6 @@
-﻿using Domain.Models;
+﻿using Cinema.Filmes.Domain.Models;
 
-namespace Domain.Services
+namespace Cinema.Filmes.Domain.Services
 {
     public interface IFilmesService
     {
@@ -12,9 +12,7 @@ namespace Domain.Services
         ///     Lista dos filmes encontrados conforme criterio de pesquisa.
         /// </returns>
         Task<IEnumerable<Filme>> ObterFilmesAsync(Pesquisa pesquisa);
-		
-		Task<Movie> ObterFilmesPorIdAsync(int movieId);
 
-        Task<bool> CheckInFilmeAsync(int movieId);
-	}
+        Task<Movie> ObterFilmesPorIdAsync(int movieId);
+    }
 }

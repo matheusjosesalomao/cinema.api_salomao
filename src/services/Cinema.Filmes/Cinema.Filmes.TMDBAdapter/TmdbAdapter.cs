@@ -1,11 +1,11 @@
 using AutoMapper;
-using Domain.Adapters;
-using Domain.Models;
+using Cinema.Filmes.Domain.Adapters;
+using Cinema.Filmes.Domain.Models;
+using Cinema.Filmes.TMDBAdapter.Clients;
 using Refit;
 using System.Net;
-using TmdbAdapter.Clients;
 
-namespace Adapter.TmdbAdapter
+namespace Cinema.Filmes.TMDBAdapter
 {
     internal class TmdbAdapter : ITmdbAdapter
     {
@@ -61,11 +61,11 @@ namespace Adapter.TmdbAdapter
         {
             try
             {
-				// Faça a chamada para o método da API passando o cabeçalho de autorização
-				var tmdbSearchMoviesGetResult = await tmdbApi
-					.SearchMoviesById(movieId);
+                // Faça a chamada para o método da API passando o cabeçalho de autorização
+                var tmdbSearchMoviesGetResult = await tmdbApi
+                    .SearchMoviesById(movieId);
 
-				return tmdbSearchMoviesGetResult;
+                return tmdbSearchMoviesGetResult;
             }
             catch (ApiException e)
             {

@@ -1,26 +1,25 @@
-﻿using Domain.Adapters;
-using Domain.Services;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Cinema.Filmes.Domain.Adapters;
+using Cinema.Filmes.Domain.Models;
+using Cinema.Filmes.Domain.Services;
 using Moq;
 using Xunit;
 using Assert = Xunit.Assert;
 
-namespace Application.Tests
+namespace Cinema.Filmes.Application.Tests
 {
-    [TestClass]
     public class FilmesTests
     {
         private readonly IFilmesService filmesService;
-        private readonly Mock<ICheckInAdapter> checkInAdapterMock;
+        private readonly Mock<ITmdbAdapter> tmdbAdapterMock;
 
         public FilmesTests()
         {
-            checkInAdapterMock = new Mock<ICheckInAdapter>();
+            tmdbAdapterMock = new Mock<ITmdbAdapter>();
 
-            filmesService = new FilmesService(tmdbAdapterMock.Object, checkInAdapterMock.Object);
+            filmesService = new FilmesService(tmdbAdapterMock.Object);
         }
 
-        [TestMethod]
+        [Fact]
         [Trait(nameof(IFilmesService.ObterFilmesAsync), "Sucesso")]
         public async Task ObterFilmesAsync_Sucesso()
         {
@@ -52,7 +51,7 @@ namespace Application.Tests
                     f.Nome == exepectedSingle.Nome);
         }
 
-        [TestMethod]
+        [Fact]
         [Trait(nameof(IFilmesService.ObterFilmesAsync), "Erro")]
         public async Task ObterFilmesAsync_Erro()
         {

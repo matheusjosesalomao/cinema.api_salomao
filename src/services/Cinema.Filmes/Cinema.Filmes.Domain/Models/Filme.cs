@@ -1,4 +1,4 @@
-﻿namespace Domain.Models
+﻿namespace Cinema.Filmes.Domain.Models
 {
     public class Filme
     {

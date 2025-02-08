@@ -1,8 +1,8 @@
 using AutoMapper;
-using Domain.Models;
-using TmdbAdapter.Clients;
+using Cinema.Filmes.Domain.Models;
+using Cinema.Filmes.TMDBAdapter.Clients;
 
-namespace Adapter.TmdbAdapter
+namespace Cinema.Filmes.TMDBAdapter
 {
     public class TmdbMapperProfile : Profile
     {

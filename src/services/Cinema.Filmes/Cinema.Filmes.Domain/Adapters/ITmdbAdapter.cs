@@ -1,6 +1,6 @@
-using Domain.Models;
+using Cinema.Filmes.Domain.Models;
 
-namespace Domain.Adapters
+namespace Cinema.Filmes.Domain.Adapters
 {
     public interface ITmdbAdapter
     {
@@ -15,9 +15,9 @@ namespace Domain.Adapters
         /// </returns>
         /// <exception cref="Exceptions.BuscarFilmesCoreException" />
         Task<IEnumerable<Filme>> GetFilmesAsync(Pesquisa pesquisa);
-		Task<Movie> GetFilmesPorIdAsync(int movie_id);
+        Task<Movie> GetFilmesPorIdAsync(int movie_id);
 
-	}
+    }
 }
 
 

@@ -1,6 +1,6 @@
 using Newtonsoft.Json;
 
-namespace TmdbAdapter.Clients
+namespace Cinema.Filmes.TMDBAdapter.Clients
 {
     /// <summary>
     /// Modelo do retorno para a rota /search/movie do TMDb API

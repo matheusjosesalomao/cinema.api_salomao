@@ -1,13 +1,13 @@
-﻿using Adapter.TmdbAdapter;
-using AutoMapper;
-using Domain.Models;
-using Dtos;
+﻿using AutoMapper;
+using Cinema.Filmes.Api.Dtos;
+using Cinema.Filmes.Domain.Models;
+using Cinema.Filmes.TMDBAdapter;
 
-namespace baseMap
+namespace Cinema.Filmes.Api
 {
-    public static class AutoMapperStartup
+    public static class AutoMapperConfig
     {
-        public static void AddAutoMapperCustomizado(this IServiceCollection servicos)
+        public static void AddAutoMapperConfig(this IServiceCollection servicos)
         {
             var mappingConfig = new MapperConfiguration(mc =>
             {

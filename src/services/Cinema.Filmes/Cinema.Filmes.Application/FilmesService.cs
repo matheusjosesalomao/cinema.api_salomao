@@ -1,31 +1,24 @@
-using Domain.Adapters;
-using Domain.Models;
-using Domain.Services;
+Ôªøusing Cinema.Filmes.Domain.Adapters;
+using Cinema.Filmes.Domain.Models;
+using Cinema.Filmes.Domain.Services;
 
-namespace Application
+namespace Cinema.Filmes.Application
 {
     public class FilmesService : IFilmesService
     {
         private readonly ITmdbAdapter tmdbAdapter;
-        private readonly ICheckInAdapter checkInAdapter;
 
-		public FilmesService(ITmdbAdapter tmdbAdapter, ICheckInAdapter checkInAdapter)
+        public FilmesService(ITmdbAdapter tmdbAdapter)
         {
             this.tmdbAdapter = tmdbAdapter ?? throw new ArgumentNullException(nameof(tmdbAdapter));
-            this.checkInAdapter = checkInAdapter ?? throw new ArgumentNullException(nameof(checkInAdapter));
         }
 
-		public async Task<bool> CheckInFilmeAsync(int movieId)
-		{
-            return await this.checkInAdapter.CheckInAsync(movieId);
-		}
-
-		public async Task<IEnumerable<Filme>> ObterFilmesAsync(
+        public async Task<IEnumerable<Filme>> ObterFilmesAsync(
             Pesquisa pesquisa)
         {
             if (pesquisa == null || string.IsNullOrWhiteSpace(pesquisa.TermoPesquisa))
             {
-                throw new Exception("CritÈrios de pesquisa n„o s„o validos.");
+                throw new Exception("Crit√©rios de pesquisa n√£o s√£o validos.");
             }
 
             IEnumerable<Filme> resultado = await tmdbAdapter
@@ -38,7 +31,7 @@ namespace Application
         {
             if (movie_id < 0)
             {
-                throw new Exception("CritÈrios de pesquisa n„o s„o validos.");
+                throw new Exception("Crit√©rios de pesquisa n√£o s√£o validos.");
             }
 
             var resultado = await tmdbAdapter

@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Adapter.TmdbAdapter
+namespace Cinema.Filmes.TMDBAdapter
 {
     public class TmdbAdapterConfiguration
     {
