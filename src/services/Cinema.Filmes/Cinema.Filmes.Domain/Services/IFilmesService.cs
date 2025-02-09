@@ -13,6 +13,6 @@ namespace Cinema.Filmes.Domain.Services
         /// </returns>
         Task<IEnumerable<Filme>> ObterFilmesAsync(Pesquisa pesquisa);
 
-        Task<Movie> ObterFilmesPorIdAsync(int movieId);
+        Task<Filme> ObterFilmesPorIdAsync(int movieId);
     }
 }

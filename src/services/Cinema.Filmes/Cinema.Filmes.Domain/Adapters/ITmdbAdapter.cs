@@ -15,8 +15,7 @@ namespace Cinema.Filmes.Domain.Adapters
         /// </returns>
         /// <exception cref="Exceptions.BuscarFilmesCoreException" />
         Task<IEnumerable<Filme>> GetFilmesAsync(Pesquisa pesquisa);
-        Task<Movie> GetFilmesPorIdAsync(int movie_id);
-
+        Task<Filme> GetFilmesPorIdAsync(int movie_id);
     }
 }
 

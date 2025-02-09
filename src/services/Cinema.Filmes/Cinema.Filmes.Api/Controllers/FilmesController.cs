@@ -47,5 +47,29 @@ namespace Cinema.Filmes.Api.Controllers
 
             return Ok(filmesGetResults);
         }
+
+        /// <summary>
+        /// Obtém filmes por Id.
+        /// </summary>
+        /// <param name="filmeId">
+        ///     Id do filme
+        /// </param>
+        /// <response code="200">Retorna o filme.</response>
+        /// <response code="400">
+        ///     Parâmetros incorretos ou limite de utilização excedido.
+        /// </response>
+        /// <response code="500">Erro interno.</response>
+        [HttpGet("{filmeId:int}"), AllowAnonymous]
+        [ProducesResponseType(typeof(FilmesGetResult), 200)]
+        /// <response code="400"> Dados inválidos</response>
+        /// <response code="500">Erro interno.</response>
+        public async Task<IActionResult> GetFilmePorIdAsync(
+            [FromRoute] int filmeId)
+        {
+            var filme = await filmesService.ObterFilmesPorIdAsync(filmeId);
+            var filmeResult = mapper.Map<FilmesGetResult>(filme);
+
+            return Ok(filmeResult);
+        }
     }
 }

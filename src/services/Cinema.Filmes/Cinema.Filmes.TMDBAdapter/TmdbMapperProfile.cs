@@ -21,6 +21,14 @@ namespace Cinema.Filmes.TMDBAdapter
                     opt => opt.MapFrom(origem => origem.TermoPesquisa))
                 .ForMember(destino => destino.Year,
                     opt => opt.MapFrom(origem => origem.AnoLancamento));
+
+            CreateMap<Movie, Filme>()
+                .ForMember(destino => destino.Nome,
+                    opt => opt.MapFrom(origem => origem.Title))
+                .ForMember(destiono => destiono.Descricao,
+                    opt => opt.MapFrom(origem => origem.Overview))
+                .ForMember(destino => destino.DataLancamento,
+                    opt => opt.MapFrom(origem => origem.ReleaseDate));
         }
     }
 }

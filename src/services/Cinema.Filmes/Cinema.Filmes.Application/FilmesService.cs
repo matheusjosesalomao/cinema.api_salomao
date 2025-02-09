@@ -27,7 +27,7 @@ namespace Cinema.Filmes.Application
             return resultado;
         }
 
-        public async Task<Movie> ObterFilmesPorIdAsync(int movie_id)
+        public async Task<Filme> ObterFilmesPorIdAsync(int movie_id)
         {
             if (movie_id < 0)
             {
@@ -39,6 +39,5 @@ namespace Cinema.Filmes.Application
 
             return resultado;
         }
-
     }
 }

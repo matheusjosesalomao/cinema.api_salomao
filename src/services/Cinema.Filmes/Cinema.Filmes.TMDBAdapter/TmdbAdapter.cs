@@ -57,7 +57,7 @@ namespace Cinema.Filmes.TMDBAdapter
             }
         }
 
-        public async Task<Movie> GetFilmesPorIdAsync(int movieId)
+        public async Task<Filme> GetFilmesPorIdAsync(int movieId)
         {
             try
             {
@@ -65,7 +65,7 @@ namespace Cinema.Filmes.TMDBAdapter
                 var tmdbSearchMoviesGetResult = await tmdbApi
                     .SearchMoviesById(movieId);
 
-                return tmdbSearchMoviesGetResult;
+                return mapper.Map<Filme>(tmdbSearchMoviesGetResult);
             }
             catch (ApiException e)
             {
