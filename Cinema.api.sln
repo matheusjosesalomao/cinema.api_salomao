@@ -3,20 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33424.131
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Application", "Application\Application.csproj", "{CB832441-4ECD-473D-A30F-E142C03DE484}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain", "Domain\Domain.csproj", "{65FBF6C4-D3A2-44AE-9C66-1E255009C67D}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0 Core", "0 Core", "{4D3804B9-6741-4706-A956-DD614204A8C3}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 Presentation", "2 Presentation", "{D39D15B0-AACF-40CD-86DE-FDD42D4EEB23}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 Infra", "1 Infra", "{0580D5DB-7220-4C61-96CD-375D6140F7B6}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "API", "API\API.csproj", "{863244CF-FCDE-4C7A-BE3D-A31C9E8BA66A}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IMDbAdapter", "IMDbAdapter\IMDbAdapter.csproj", "{8272A25B-5949-4F6E-B55D-DD685FAF4768}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cinema.Filmes.Domain", "src\services\Cinema.Filmes\Cinema.Filmes.Domain\Cinema.Filmes.Domain.csproj", "{40A4EDE1-8B8A-46F9-8935-FAD48E9631B7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cinema.Filmes.TMDBAdapter", "src\services\Cinema.Filmes\Cinema.Filmes.TMDBAdapter\Cinema.Filmes.TMDBAdapter.csproj", "{B3AE1D3E-CC0A-449E-8ED6-C0EEB2DC528B}"
@@ -27,28 +13,18 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cinema.Filmes.Api", "src\se
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cinema.Filmes.Application.Tests", "src\services\Cinema.Filmes\Cinema.Filmes.Application.Tests\Cinema.Filmes.Application.Tests.csproj", "{5B5D6E4B-E0FC-4CDC-9A06-CBB6B5ED012D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cinema.Bilhetes.Domain", "src\services\Cinema.Bilhetes\Cinema.Bilhetes.Domain\Cinema.Bilhetes.Domain.csproj", "{9CD99D16-277E-4228-A275-6C9B7DADE970}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cinema.Bilhetes.Infra", "src\services\Cinema.Bilhetes\Cinema.Bilhetes.Infra\Cinema.Bilhetes.Infra.csproj", "{347C6826-CCA3-4D3D-9384-C01726159BDE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cinema.Bilhetes.Api", "src\services\Cinema.Bilhetes\Cinema.Bilhetes.Api\Cinema.Bilhetes.Api.csproj", "{172B6064-6737-41EB-9F19-8F4E24D44416}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{CB832441-4ECD-473D-A30F-E142C03DE484}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CB832441-4ECD-473D-A30F-E142C03DE484}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CB832441-4ECD-473D-A30F-E142C03DE484}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CB832441-4ECD-473D-A30F-E142C03DE484}.Release|Any CPU.Build.0 = Release|Any CPU
-		{65FBF6C4-D3A2-44AE-9C66-1E255009C67D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{65FBF6C4-D3A2-44AE-9C66-1E255009C67D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{65FBF6C4-D3A2-44AE-9C66-1E255009C67D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{65FBF6C4-D3A2-44AE-9C66-1E255009C67D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{863244CF-FCDE-4C7A-BE3D-A31C9E8BA66A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{863244CF-FCDE-4C7A-BE3D-A31C9E8BA66A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{863244CF-FCDE-4C7A-BE3D-A31C9E8BA66A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{863244CF-FCDE-4C7A-BE3D-A31C9E8BA66A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{8272A25B-5949-4F6E-B55D-DD685FAF4768}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8272A25B-5949-4F6E-B55D-DD685FAF4768}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8272A25B-5949-4F6E-B55D-DD685FAF4768}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8272A25B-5949-4F6E-B55D-DD685FAF4768}.Release|Any CPU.Build.0 = Release|Any CPU
 		{40A4EDE1-8B8A-46F9-8935-FAD48E9631B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{40A4EDE1-8B8A-46F9-8935-FAD48E9631B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{40A4EDE1-8B8A-46F9-8935-FAD48E9631B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -69,15 +45,21 @@ Global
 		{5B5D6E4B-E0FC-4CDC-9A06-CBB6B5ED012D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5B5D6E4B-E0FC-4CDC-9A06-CBB6B5ED012D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5B5D6E4B-E0FC-4CDC-9A06-CBB6B5ED012D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9CD99D16-277E-4228-A275-6C9B7DADE970}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9CD99D16-277E-4228-A275-6C9B7DADE970}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9CD99D16-277E-4228-A275-6C9B7DADE970}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9CD99D16-277E-4228-A275-6C9B7DADE970}.Release|Any CPU.Build.0 = Release|Any CPU
+		{347C6826-CCA3-4D3D-9384-C01726159BDE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{347C6826-CCA3-4D3D-9384-C01726159BDE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{347C6826-CCA3-4D3D-9384-C01726159BDE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{347C6826-CCA3-4D3D-9384-C01726159BDE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{172B6064-6737-41EB-9F19-8F4E24D44416}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{172B6064-6737-41EB-9F19-8F4E24D44416}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{172B6064-6737-41EB-9F19-8F4E24D44416}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{172B6064-6737-41EB-9F19-8F4E24D44416}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{CB832441-4ECD-473D-A30F-E142C03DE484} = {4D3804B9-6741-4706-A956-DD614204A8C3}
-		{65FBF6C4-D3A2-44AE-9C66-1E255009C67D} = {4D3804B9-6741-4706-A956-DD614204A8C3}
-		{863244CF-FCDE-4C7A-BE3D-A31C9E8BA66A} = {D39D15B0-AACF-40CD-86DE-FDD42D4EEB23}
-		{8272A25B-5949-4F6E-B55D-DD685FAF4768} = {0580D5DB-7220-4C61-96CD-375D6140F7B6}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {CF9796DD-3657-4D58-9C3F-3BEB25AF27DF}
