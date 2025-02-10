@@ -21,8 +21,8 @@ namespace Cinema.Bilhetes.Api.Controllers
         {
             try
             {
-                var filmeExiste = await _fimesApi.GetFilmePorId(filmeId);
-                if (filmeExiste)
+                var filmeResult = await _fimesApi.GetFilmePorIdAsync(filmeId);
+                if (filmeResult is null)
                     return NotFound($"Filme com Id = {filmeId} não foi encontrado.");
 
                 // Realizar o check-in do filme vinculando o usuário

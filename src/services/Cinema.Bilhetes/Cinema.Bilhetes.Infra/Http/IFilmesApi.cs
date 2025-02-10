@@ -1,10 +1,11 @@
-﻿using Refit;
+﻿using Cinema.Bilhetes.Infra.Http.Dto;
+using Refit;
 
 namespace Cinema.Bilhetes.Infra.Http
 {
     public interface IFilmesApi
     {
-        [Get("/filmes/{filmeId}")]
-        Task<bool> GetFilmePorId(int id);
+        [Get("/Filmes/{filmeId}")]
+        Task<FilmeDto> GetFilmePorIdAsync(int filmeId);
     }
 }
