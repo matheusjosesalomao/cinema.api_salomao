@@ -1,4 +1,5 @@
-﻿using Cinema.Bilhetes.Infra.Http;
+﻿using Cinema.Bilhetes.Domain.Bilhetes;
+using Cinema.Bilhetes.Infra.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Cinema.Bilhetes.Api.Controllers
@@ -7,10 +8,12 @@ namespace Cinema.Bilhetes.Api.Controllers
     public class BilhetesController : ControllerBase
     {
         private readonly IFilmesApi _fimesApi;
+        private readonly IBilheteRepository _bilheteRepository;
 
-        public BilhetesController(IFilmesApi filmesApi)
+        public BilhetesController(IFilmesApi filmesApi, IBilheteRepository bilheteRepository)
         {
             _fimesApi = filmesApi;
+            _bilheteRepository = bilheteRepository;
         }
 
         [HttpPost("check-in")]
@@ -25,9 +28,11 @@ namespace Cinema.Bilhetes.Api.Controllers
                 if (filmeResult is null)
                     return NotFound($"Filme com Id = {filmeId} não foi encontrado.");
 
-                // Realizar o check-in do filme vinculando o usuário
+                var bilhete = new Bilhete(filmeResult.Id, 0, 20);
 
-                return Ok(filmeId);
+                await _bilheteRepository.CreateAsync(bilhete);
+
+                return Ok($"Check-in realizado com sucesso para o filme de Id = {filmeId}");
             }
             catch (Exception ex)
             {
