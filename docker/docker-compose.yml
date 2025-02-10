@@ -12,6 +12,19 @@ services:
     environment:
       MONGO_INITDB_ROOT_USERNAME: "admin"
       MONGO_INITDB_ROOT_PASSWORD: "password"
+  
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: sqlserver
+    restart: always
+    environment:
+        SA_PASSWORD: "123@Passw0rd"
+        ACCEPT_EULA: "Y"
+    ports:
+        - "1433:1433"
+    volumes:
+      - sqlserver_data:/var/opt/mssql
 
 volumes:
   mongodb_data:
+  sqlserver_data:

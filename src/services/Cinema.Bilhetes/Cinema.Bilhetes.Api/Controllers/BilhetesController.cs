@@ -28,7 +28,7 @@ namespace Cinema.Bilhetes.Api.Controllers
                 if (filmeResult is null)
                     return NotFound($"Filme com Id = {filmeId} não foi encontrado.");
 
-                var bilhete = new Bilhete(filmeResult.Id, 0, 20);
+                var bilhete = new Bilhete(filmeResult.Id, 20, "");
 
                 await _bilheteRepository.CreateAsync(bilhete);
 
