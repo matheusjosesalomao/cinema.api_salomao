@@ -1,9 +1,12 @@
 ﻿using Cinema.Bilhetes.Domain.Bilhetes;
 using Cinema.Bilhetes.Infra.Http;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 
 namespace Cinema.Bilhetes.Api.Controllers
 {
+    [Authorize]
     [Route("[controller]")]
     public class BilhetesController : ControllerBase
     {
@@ -19,6 +22,7 @@ namespace Cinema.Bilhetes.Api.Controllers
         [HttpPost("check-in")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status403Forbidden)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> CheckInFilmeAsync([FromQuery] int filmeId)
         {
@@ -28,7 +32,12 @@ namespace Cinema.Bilhetes.Api.Controllers
                 if (filmeResult is null)
                     return NotFound($"Filme com Id = {filmeId} não foi encontrado.");
 
-                var bilhete = new Bilhete(filmeResult.Id, 20, "");
+                var idUsuario = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+
+                if (idUsuario == null)
+                    return StatusCode(StatusCodes.Status403Forbidden, "Usuário não autenticado");
+
+                var bilhete = new Bilhete(filmeResult.Id, 20, idUsuario);
 
                 await _bilheteRepository.CreateAsync(bilhete);
 
