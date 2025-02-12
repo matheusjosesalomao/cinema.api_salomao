@@ -36,5 +36,10 @@ namespace Cinema.Bilhetes.Infra.Data.Repository
         {
             await _collection.DeleteOneAsync(x => x.Id == id);
         }
+
+        public async Task<IEnumerable<Bilhete>> GetBilhetesByUser(string idUsuario)
+        {
+            return await _collection.Find(x => x.UsuarioId == idUsuario).ToListAsync();
+        }
     }
 }

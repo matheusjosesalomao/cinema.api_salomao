@@ -48,5 +48,29 @@ namespace Cinema.Bilhetes.Api.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError, $"Erro interno: {ex.Message}");
             }
         }
+
+        [HttpGet("Usuarios/{id}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status403Forbidden)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        public async Task<IActionResult> GetBilhetesPorUsuarioAsync([FromRoute] string id)
+        {
+            try
+            {
+                var idUsuario = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+
+                if (idUsuario == null)
+                    return StatusCode(StatusCodes.Status403Forbidden, "Usuário não autenticado");
+
+                var bilhetes = await _bilheteRepository.GetBilhetesByUser(id);
+
+                return Ok(bilhetes);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, $"Erro interno: {ex.Message}");
+            }
+        }
     }
 }
