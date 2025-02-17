@@ -1,7 +1,8 @@
 ﻿using AutoMapper;
+using Cinema.Bilhetes.Api.Application.Commands;
 using Cinema.Bilhetes.Api.Dtos;
 using Cinema.Bilhetes.Domain.Bilhetes;
-using Cinema.Bilhetes.Infra.Http;
+using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
@@ -12,13 +13,13 @@ namespace Cinema.Bilhetes.Api.Controllers
     [Route("[controller]")]
     public class BilhetesController : ControllerBase
     {
-        private readonly IFilmesApi _fimesApi;
+        private readonly IMediator _mediator;
         private readonly IBilheteRepository _bilheteRepository;
         private readonly IMapper _mapper;
 
-        public BilhetesController(IFilmesApi filmesApi, IBilheteRepository bilheteRepository, IMapper mapper)
+        public BilhetesController(IMediator mediator, IBilheteRepository bilheteRepository, IMapper mapper)
         {
-            _fimesApi = filmesApi;
+            _mediator = mediator;
             _bilheteRepository = bilheteRepository;
             _mapper = mapper;
         }
@@ -32,20 +33,17 @@ namespace Cinema.Bilhetes.Api.Controllers
         {
             try
             {
-                var filmeResult = await _fimesApi.GetFilmePorIdAsync(filmeId);
-                if (filmeResult is null)
-                    return NotFound($"Filme com Id = {filmeId} não foi encontrado.");
-
                 var idUsuario = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-
                 if (idUsuario == null)
                     return StatusCode(StatusCodes.Status403Forbidden, "Usuário não autenticado");
 
-                var bilhete = new Bilhete(filmeResult.Id, 20, idUsuario);
+                var comando = new RealizarCheckInFilmeCommand(filmeId, idUsuario);
+                var enviarComando = await _mediator.Send(comando);
 
-                await _bilheteRepository.CreateAsync(bilhete);
+                if (enviarComando)
+                    return Ok($"Check-in realizado com sucesso para o filme de Id = {filmeId}");
 
-                return Ok($"Check-in realizado com sucesso para o filme de Id = {filmeId}");
+                return NotFound($"Filme com Id = {filmeId} não foi encontrado.");
             }
             catch (Exception ex)
             {
