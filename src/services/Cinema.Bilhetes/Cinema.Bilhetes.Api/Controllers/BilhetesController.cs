@@ -1,4 +1,6 @@
-﻿using Cinema.Bilhetes.Domain.Bilhetes;
+﻿using AutoMapper;
+using Cinema.Bilhetes.Api.Dtos;
+using Cinema.Bilhetes.Domain.Bilhetes;
 using Cinema.Bilhetes.Infra.Http;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -12,11 +14,13 @@ namespace Cinema.Bilhetes.Api.Controllers
     {
         private readonly IFilmesApi _fimesApi;
         private readonly IBilheteRepository _bilheteRepository;
+        private readonly IMapper _mapper;
 
-        public BilhetesController(IFilmesApi filmesApi, IBilheteRepository bilheteRepository)
+        public BilhetesController(IFilmesApi filmesApi, IBilheteRepository bilheteRepository, IMapper mapper)
         {
             _fimesApi = filmesApi;
             _bilheteRepository = bilheteRepository;
+            _mapper = mapper;
         }
 
         [HttpPost("check-in")]
@@ -49,12 +53,12 @@ namespace Cinema.Bilhetes.Api.Controllers
             }
         }
 
-        [HttpGet("Usuarios/{id}")]
+        [HttpGet("")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status403Forbidden)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<IActionResult> GetBilhetesPorUsuarioAsync([FromRoute] string id)
+        public async Task<IActionResult> GetBilhetesPorUsuarioAsync()
         {
             try
             {
@@ -63,9 +67,9 @@ namespace Cinema.Bilhetes.Api.Controllers
                 if (idUsuario == null)
                     return StatusCode(StatusCodes.Status403Forbidden, "Usuário não autenticado");
 
-                var bilhetes = await _bilheteRepository.GetBilhetesByUser(id);
+                var bilhetes = await _bilheteRepository.GetBilhetesByUser(idUsuario);
 
-                return Ok(bilhetes);
+                return Ok(_mapper.Map<IEnumerable<BilhetesGetResult>>(bilhetes));
             }
             catch (Exception ex)
             {

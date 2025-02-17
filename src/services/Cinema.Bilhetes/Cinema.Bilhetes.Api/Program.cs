@@ -44,6 +44,8 @@ builder.Services.AddSwaggerGen(options =>
 
 builder.Services.AddMongo(configuration);
 
+builder.Services.AddAutoMapperConfig();
+
 builder.Services.Configure<ApiSettings>(builder.Configuration.GetSection("ApiSettings"));
 
 builder.Services.AddRefitClient<IFilmesApi>()

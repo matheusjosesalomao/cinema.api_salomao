@@ -7,12 +7,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="12.0.1" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.36" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
 	<PackageReference Include="Refit.HttpClientFactory" Version="5.2.1" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Cinema.Filmes\Cinema.Filmes.Domain\Cinema.Filmes.Domain.csproj" />
     <ProjectReference Include="..\Cinema.Bilhetes.Infra\Cinema.Bilhetes.Infra.csproj" />
   </ItemGroup>
 
