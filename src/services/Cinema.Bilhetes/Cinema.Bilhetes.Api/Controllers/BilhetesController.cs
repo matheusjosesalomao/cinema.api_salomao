@@ -1,7 +1,5 @@
-﻿using AutoMapper;
-using Cinema.Bilhetes.Api.Application.Commands;
-using Cinema.Bilhetes.Api.Dtos;
-using Cinema.Bilhetes.Domain.Bilhetes;
+﻿using Cinema.Bilhetes.Api.Application.Commands;
+using Cinema.Bilhetes.Api.Application.Queries;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -14,14 +12,12 @@ namespace Cinema.Bilhetes.Api.Controllers
     public class BilhetesController : ControllerBase
     {
         private readonly IMediator _mediator;
-        private readonly IBilheteRepository _bilheteRepository;
-        private readonly IMapper _mapper;
+        private readonly IBilhetesQueries _bilhetesQueries;
 
-        public BilhetesController(IMediator mediator, IBilheteRepository bilheteRepository, IMapper mapper)
+        public BilhetesController(IMediator mediator, IBilhetesQueries bilhetesQueries)
         {
             _mediator = mediator;
-            _bilheteRepository = bilheteRepository;
-            _mapper = mapper;
+            _bilhetesQueries = bilhetesQueries;
         }
 
         [HttpPost("check-in")]
@@ -65,9 +61,9 @@ namespace Cinema.Bilhetes.Api.Controllers
                 if (idUsuario == null)
                     return StatusCode(StatusCodes.Status403Forbidden, "Usuário não autenticado");
 
-                var bilhetes = await _bilheteRepository.GetBilhetesByUser(idUsuario);
+                var bilhetes = _bilhetesQueries.ObterBilhetesPorUsuario(idUsuario);
 
-                return Ok(_mapper.Map<IEnumerable<BilhetesGetResult>>(bilhetes));
+                return Ok(bilhetes);
             }
             catch (Exception ex)
             {

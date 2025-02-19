@@ -1,4 +1,5 @@
 using Cinema.Bilhetes.Api;
+using Cinema.Bilhetes.Api.Application.Queries;
 using Cinema.Bilhetes.Infra.Data;
 using Cinema.Bilhetes.Infra.Http;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -46,6 +47,8 @@ builder.Services.AddSwaggerGen(options =>
 builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
 
 builder.Services.AddMongo(configuration);
+
+builder.Services.AddScoped<IBilhetesQueries, BilhetesQueries>();
 
 builder.Services.AddAutoMapperConfig();
 
