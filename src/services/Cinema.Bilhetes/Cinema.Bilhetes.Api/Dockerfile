@@ -4,6 +4,8 @@ WORKDIR /app
 
 # Copiando apenas o .csproj e restaurando as dependências
 COPY *.csproj ./
+COPY ../Cinema.Bilhetes.Domain/*.csproj ../Cinema.Bilhetes.Domain/
+COPY ../Cinema.Bilhetes.Infra/*.csproj ../Cinema.Filmes.Infra/
 RUN dotnet restore
 
 # Copiando o restante do código e publicando

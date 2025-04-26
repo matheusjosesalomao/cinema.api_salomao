@@ -4,6 +4,8 @@ WORKDIR /app
 
 # Copiando apenas o .csproj e restaurando as dependências
 COPY *.csproj ./
+COPY ../Cinema.Filmes.Application/*.csproj ../Cinema.Filmes.Application/
+COPY ../Cinema.Filmes.TMDBAdapter/*.csproj ../Cinema.Filmes.TMDBAdapter/
 RUN dotnet restore
 
 # Copiando o restante do código e publicando
