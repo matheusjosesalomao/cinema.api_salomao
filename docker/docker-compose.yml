@@ -40,8 +40,8 @@ services:
 
   cinema-filmes:
     build:
-        context: ../src/services/Cinema.Filmes/Cinema.Filmes.Api
-        dockerfile: Dockerfile
+        context: ../src/services/Cinema.Filmes
+        dockerfile: Cinema.Filmes.Api/Dockerfile
     ports:
         - "5001:5001"
     networks:
@@ -49,8 +49,8 @@ services:
 
   cinema-bilhetes:
     build:
-        context: ../src/services/Cinema.Bilhetes/Cinema.Bilhetes.Api
-        dockerfile: Dockerfile
+        context: ../src/services/Cinema.Bilhetes
+        dockerfile: Cinema.Bilhetes.Api/Dockerfile
     ports:
         - "5002:5002"
     networks:

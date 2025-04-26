@@ -3,14 +3,20 @@ FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /app
 
 # Copiando apenas o .csproj e restaurando as dependências
-COPY *.csproj ./
-COPY ../Cinema.Bilhetes.Domain/*.csproj ../Cinema.Bilhetes.Domain/
-COPY ../Cinema.Bilhetes.Infra/*.csproj ../Cinema.Filmes.Infra/
+COPY Cinema.Bilhetes.Api/*.csproj Cinema.Bilhetes.Api/
+COPY Cinema.Bilhetes.Domain/*.csproj Cinema.Bilhetes.Domain/
+COPY Cinema.Bilhetes.Infra/*.csproj Cinema.Bilhetes.Infra/
+
+# Alterar para o diretório da API principal antes de restaurar dependências
+WORKDIR /app/Cinema.Bilhetes.Api
 RUN dotnet restore
 
-# Copiando o restante do código e publicando
+# Voltar para o diretório principal e copiar o restante do código
+WORKDIR /app
 COPY . .
-RUN dotnet publish -c Release -o out
+
+# Publicar o projeto
+RUN dotnet publish Cinema.Bilhetes.Api/Cinema.Bilhetes.Api.csproj -c Release -o out
 
 # Usando a imagem de runtime
 FROM mcr.microsoft.com/dotnet/aspnet:6.0
