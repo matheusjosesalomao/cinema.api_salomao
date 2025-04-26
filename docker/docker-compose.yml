@@ -12,6 +12,8 @@ services:
     environment:
       MONGO_INITDB_ROOT_USERNAME: "admin"
       MONGO_INITDB_ROOT_PASSWORD: "password"
+    networks:
+        - cinema-network
   
   sqlserver:
     image: mcr.microsoft.com/mssql/server:2022-latest
@@ -24,7 +26,40 @@ services:
         - "1433:1433"
     volumes:
       - sqlserver_data:/var/opt/mssql
+    networks:
+    - cinema-network
+
+  cinema-usuarios:
+    build:
+        context: ../src/services/Cinema.Usuarios/Cinema.Usuario.Api
+        dockerfile: Dockerfile
+    ports:
+        - "5000:5000"
+    networks:
+        - cinema-network
+
+  cinema-filmes:
+    build:
+        context: ../src/services/Cinema.Filmes/Cinema.Filmes.Api
+        dockerfile: Dockerfile
+    ports:
+        - "5001:5001"
+    networks:
+        - cinema-network
+
+  cinema-bilhetes:
+    build:
+        context: ../src/services/Cinema.Bilhetes/Cinema.Bilhetes.Api
+        dockerfile: Dockerfile
+    ports:
+        - "5002:5002"
+    networks:
+        - cinema-network
 
 volumes:
   mongodb_data:
   sqlserver_data:
+
+networks:
+  cinema-network:
+    driver: bridge
