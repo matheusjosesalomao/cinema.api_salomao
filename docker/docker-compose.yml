@@ -29,32 +29,32 @@ services:
     networks:
     - cinema-network
 
-  cinema-usuarios:
-    build:
-        context: ../src/services/Cinema.Usuarios/Cinema.Usuario.Api
-        dockerfile: Dockerfile
-    ports:
-        - "5000:5000"
-    networks:
-        - cinema-network
+  # cinema-usuarios:
+  #   build:
+  #       context: ../src/services/Cinema.Usuarios/Cinema.Usuario.Api
+  #       dockerfile: Dockerfile
+  #   ports:
+  #       - "5000:5000"
+  #   networks:
+  #       - cinema-network
 
-  cinema-filmes:
-    build:
-        context: ../src/services/Cinema.Filmes
-        dockerfile: Cinema.Filmes.Api/Dockerfile
-    ports:
-        - "5001:5001"
-    networks:
-        - cinema-network
+  # cinema-filmes:
+  #   build:
+  #       context: ../src/services/Cinema.Filmes
+  #       dockerfile: Cinema.Filmes.Api/Dockerfile
+  #   ports:
+  #       - "5001:5001"
+  #   networks:
+  #       - cinema-network
 
-  cinema-bilhetes:
-    build:
-        context: ../src/services/Cinema.Bilhetes
-        dockerfile: Cinema.Bilhetes.Api/Dockerfile
-    ports:
-        - "5002:5002"
-    networks:
-        - cinema-network
+  # cinema-bilhetes:
+  #   build:
+  #       context: ../src/services/Cinema.Bilhetes
+  #       dockerfile: Cinema.Bilhetes.Api/Dockerfile
+  #   ports:
+  #       - "5002:5002"
+  #   networks:
+  #       - cinema-network
 
 volumes:
   mongodb_data:

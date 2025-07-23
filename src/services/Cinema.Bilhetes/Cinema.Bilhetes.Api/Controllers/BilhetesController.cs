@@ -61,7 +61,7 @@ namespace Cinema.Bilhetes.Api.Controllers
                 if (idUsuario == null)
                     return StatusCode(StatusCodes.Status403Forbidden, "Usuário não autenticado");
 
-                var bilhetes = _bilhetesQueries.ObterBilhetesPorUsuario(idUsuario);
+                var bilhetes = await _bilhetesQueries.ObterBilhetesPorUsuario(idUsuario);
 
                 return Ok(bilhetes);
             }

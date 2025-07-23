@@ -23,7 +23,7 @@ namespace Cinema.Bilhetes.Api.Application.Queries
         {
             var bilhetes = await _bilheteRepository.GetBilhetesByUser(idUsuario);
 
-            return _mapper.Map<IEnumerable<BilhetesGetResult>>(bilhetes); ;
+            return _mapper.Map<IEnumerable<BilhetesGetResult>>(bilhetes);
         }
     }
 }

@@ -23,6 +23,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cinema.Usuario.Api", "src\s
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cinema.Bilhetes.Api.Tests", "src\services\Cinema.Bilhetes\Cinema.Bilhetes.Api.Tests\Cinema.Bilhetes.Api.Tests.csproj", "{2D4FCE79-1310-4807-8000-8E8EC5633269}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cinema.Bff", "src\bff\Cinema.Bff\Cinema.Bff.csproj", "{4FD3713C-D750-4FBD-BCBD-237EFA3E3B11}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -69,6 +71,10 @@ Global
 		{2D4FCE79-1310-4807-8000-8E8EC5633269}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2D4FCE79-1310-4807-8000-8E8EC5633269}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2D4FCE79-1310-4807-8000-8E8EC5633269}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4FD3713C-D750-4FBD-BCBD-237EFA3E3B11}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4FD3713C-D750-4FBD-BCBD-237EFA3E3B11}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4FD3713C-D750-4FBD-BCBD-237EFA3E3B11}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4FD3713C-D750-4FBD-BCBD-237EFA3E3B11}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
