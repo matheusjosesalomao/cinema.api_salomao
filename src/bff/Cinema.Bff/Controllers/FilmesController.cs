@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace Cinema.Bff.Controllers
 {
     [ApiController]
-    [Route("api/filmes")]
+    [Route("[controller]")]
     public class FilmesController : ControllerBase
     {
         private readonly FilmesService _filmesService;

@@ -32,7 +32,7 @@ namespace Cinema.Bff.Services
 
         public async Task<string> RealizarCheckInFilmeAsync(int filmeId, string token)
         {
-            var request = new HttpRequestMessage(HttpMethod.Post, $"https://localhost:5003/bilhetes/check-in?filmeId={filmeId}");
+            var request = new HttpRequestMessage(HttpMethod.Post, $"https://localhost:7104/bilhetes/check-in?filmeId={filmeId}");
             request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", token);
 
             var response = await _httpClient.SendAsync(request);
