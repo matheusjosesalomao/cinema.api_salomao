@@ -4,8 +4,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Cinema.Bff.Controllers
 {
-    [ApiController]
-    [Route("api/bilhetes")]
+    [Authorize]
+    [Route("[controller]")]
     public class BilhetesController : ControllerBase
     {
         private readonly BilhetesService _bilhetesService;
@@ -16,10 +16,15 @@ namespace Cinema.Bff.Controllers
         }
 
         [HttpGet]
-        [Authorize]
         public async Task<IActionResult> GetBilhetesPorUsuario()
         {
-            var token = Request.Headers["Authorization"].ToString().Replace("Bearer ", "");
+            var authHeader = Request.Headers["Authorization"].FirstOrDefault();
+            if (string.IsNullOrEmpty(authHeader) || !authHeader.StartsWith("Bearer "))
+            {
+                return Unauthorized("Token não fornecido.");
+            }
+            var token = authHeader["Bearer ".Length..].Trim();
+
             try
             {
                 var bilhetes = await _bilhetesService.ObterBilhetesPorUsuarioAsync(token);
@@ -36,7 +41,6 @@ namespace Cinema.Bff.Controllers
         }
 
         [HttpPost("check-in")]
-        [Authorize]
         public async Task<IActionResult> CheckInFilme([FromQuery] int filmeId)
         {
             var token = Request.Headers["Authorization"].ToString().Replace("Bearer ", "");
