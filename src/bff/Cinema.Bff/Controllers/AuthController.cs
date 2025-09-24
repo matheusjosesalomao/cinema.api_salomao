@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace Cinema.Bff.Controllers
 {
     [ApiController]
-    [Route("api/auth")]
+    [Route("[controller]")]
     public class AuthController : ControllerBase
     {
         private readonly UsuarioService _usuarioService;
@@ -23,6 +23,17 @@ namespace Cinema.Bff.Controllers
                 return Unauthorized();
 
             return Ok(new { token });
+        }
+
+        [HttpPost("register")]
+        public async Task<IActionResult> Register([FromBody] LoginRequest request)
+        {
+            var result = await _usuarioService.RegisterAsync(request);
+
+            if (!result)
+                return BadRequest("Não foi possível registrar o usuário.");
+
+            return Ok("Usuário registrado com sucesso!");
         }
     }
 }

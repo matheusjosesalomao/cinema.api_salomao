@@ -20,5 +20,11 @@ namespace Cinema.Bff.Services
             var result = await response.Content.ReadFromJsonAsync<LoginResponse>();
             return result?.Token;
         }
+
+        public async Task<bool> RegisterAsync(LoginRequest request)
+        {
+            var response = await _httpClient.PostAsJsonAsync("https://localhost:7240/api/identidade/nova-conta", request);
+            return response.IsSuccessStatusCode;
+        }
     }
 }
